@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groundwater Flow Rate Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Groundwater Flow Rate Calculator</h1>
+        
+        <div id="error" class="error" style="display: none;"></div>
+
+        <form id="calc-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="soil_type">Soil Type:</label>
+                    <select id="soil_type" name="soil_type" required>
+                        <option value="" disabled selected>Select soil type</option>
+                        <option value="silty_sand">Silty Sand</option>
+                        <option value="fine_sand">Fine Sand</option>
+                        <option value="medium_sand">Medium Sand</option>
+                        <option value="coarse_sand">Coarse Sand</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="length">Excavation Length (ft):</label>
+                    <input type="number" id="length" name="length" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="width">Excavation Width (ft):</label>
+                    <input type="number" id="width" name="width" step="0.1" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="depth">Excavation Depth (ft):</label>
+                    <input type="number" id="depth" name="depth" step="0.1" required>
+                </div>
+                <div class="form-group">
+                    <label for="groundwater_depth">Groundwater Depth (ft):</label>
+                    <input type="number" id="groundwater_depth" name="groundwater_depth" step="0.1" required>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="button" id="calculate-button">Calculate</button>
+                <button type="reset" id="reset-button">Reset</button>
+            </div>
+        </form>
+
+        <div class="results-container" id="results-container" style="display: none;">
+            <div class="results" id="results-section">
+                <h2>Results</h2>
+                <table id="results-table">
+                    <!-- Results will be dynamically inserted here -->
+                    <!-- Ensure Min and Max Radius of Influence are added above Equivalent Well Radius dynamically -->
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
