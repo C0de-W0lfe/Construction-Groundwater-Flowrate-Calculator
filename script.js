@@ -28,7 +28,11 @@ document.getElementById('calculate-button').addEventListener('click', () => {
 
     const [KMin, KMax] = KRanges[soilType];
     const rw = (length + width) / Math.PI;
-    const aquiferDepth = Math.max((depth + 15) * 1.5, 40);
+
+    let computed = depth * 1.5;
+    let aquiferDepth = Math.ceil(computed / 5) * 5;
+    aquiferDepth = Math.max(aquiferDepth, 40);
+    
     const H = aquiferDepth - groundwaterDepth;
     const hw = aquiferDepth - (depth + 3);
     const dryDepth = aquiferDepth - hw;
